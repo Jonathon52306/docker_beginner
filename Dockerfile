@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /root/
 RUN mkdir /root/tutorial_ws \
-    && git clone https://github.com/DroidAITech/ROS-Academy-for-Beginners.git \
+    && git clone https://github.com/DroidAITech/ROS-Academy-for-Beginners.git /root/tutorial_ws/src \
     && cd /root/tutorial_ws/ \
     && rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y \
     && catkin_make \
