@@ -1,8 +1,8 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
-
+ENV LANG C.UTF-8
 RUN apt update && apt upgrade -y \
-    && apt install wget python3-pip ffmpeg screen -y \
+    && apt install wget python3-pip ffmpeg screen language-pack-zh-hans language-pack-zh-hans-base -y \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata \
     && wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -P /usr/local/bin/ \
