@@ -17,6 +17,7 @@ WORKDIR /root/
 RUN mkdir /root/tutorial_ws \
     && git clone https://github.com/DroidAITech/ROS-Academy-for-Beginners.git /root/tutorial_ws/src \
     && cd /root/tutorial_ws/ \
+    && apt update \
     && rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y \
     && catkin_make \
     && echo 'source /root/tutorial_ws/devel/setup.bash' >> /root/.bashrc
