@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: echo working directory
+        run: pwd
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_PASSWD }}" | docker login -u jonathan52306 --password-stdin
+      - name: Build and push image
+        run: |
+          docker build -t jonathan52306/docker_beginner -f Dockerfile .
+          docker push jonathan52306/docker_beginner
+
