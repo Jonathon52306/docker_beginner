@@ -1,13 +1,7 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. 
+name: Docker
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,9 +11,16 @@ jobs:
       - name: echo working directory
         run: pwd
       - name: Log into registry
-        run: echo "${{ secrets.DOCKER_PASSWD }}" | docker login -u jonathan52306 --password-stdin
+        run: |
+          echo "${{ secrets.DOCKER_PASSWD }}" | docker login -u jonathan52306 --password-stdin
+          echo "${{ secrets.DOCKER_PASSWD }}" | docker login  mirror.cubepaas.com --username jonathan --password-stdin
+          echo "${{ secrets.DOCKER_PASSWD }}" | docker login  registry.cn-hangzhou.aliyuncs.com --username jonathon53456 --password-stdin
       - name: Build and push image
         run: |
-          docker build -t jonathan52306/docker_beginner -f Dockerfile .
-          docker push jonathan52306/docker_beginner
+          docker build -t jonathan52306/docker_beginner:latest -f Dockerfile .
+          docker tag jonathan52306/docker_beginner:latest mirror.cubepaas.com/pyocr/docker_beginner:latest
+          docker tag jonathan52306/docker_beginner:latest registry.cn-hangzhou.aliyuncs.com/jonathan-docker/docker_beginner:latest
+          docker push jonathan52306/docker_beginner:latest
+          docker push mirror.cubepaas.com/pyocr/docker_beginner:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/jonathan-docker/docker_beginner:latest
 
