@@ -1,6 +1,6 @@
 #ROS
 FROM ros:kinetic-ros-core-xenial
-ENTRYPOINT [ "/bin/bash" ]
+SHELL [ "/bin/bash","-c" ]
 RUN apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     python-rosdep \
