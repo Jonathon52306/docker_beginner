@@ -1,5 +1,6 @@
 #ROS
 FROM ros:kinetic-ros-core-xenial
+ENTRYPOINT [ "/bin/bash" ]
 RUN apt-get update && apt-get install --no-install-recommends -y \
     build-essential \
     python-rosdep \
@@ -20,6 +21,7 @@ RUN mkdir /root/tutorial_ws \
     && cd /root/tutorial_ws/ \
     && apt update \
     && rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y \
+    && bash \
     && source /opt/ros/indigo/setup.bash \
     && catkin_make \
     && echo 'source /root/tutorial_ws/devel/setup.bash' >> /root/.bashrc
