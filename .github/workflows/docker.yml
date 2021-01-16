@@ -14,7 +14,7 @@ jobs:
           # echo "${{ secrets.DOCKER_PASSWD }}" | docker login  ${{ secrets.REGISTRY_ALIYUN }} --username jonathon53456 --password-stdin
       - name: Build and push image
         run: |
-          docker build -t jonathan52306/docker_beginner:xrdp -f Dockerfile-ubuntu .
+          docker build -t jonathan52306/docker_beginner:xrdp -f Dockerfile-ubuntu.dockerfile .
           # docker tag jonathan52306/docker_beginner:latest ${{ secrets.REPO_HCAAS }}/docker_beginner:latest
           # docker tag jonathan52306/docker_beginner:latest ${{ secrets.REPO_ALIYUN }}/docker_beginner:latest
           docker push jonathan52306/docker_beginner:xrdp
