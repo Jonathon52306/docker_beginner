@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python-rosinstall \
     python-vcstools \
     git \
+    apt-utils \
     && apt upgrade -y \
     && rm -rf /var/lib/apt/lists/*
 RUN rosdep init \
