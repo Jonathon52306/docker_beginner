@@ -13,5 +13,5 @@ RUN apt update && apt upgrade -y \
     && cd ~ \
     && mkdir dl 
 WORKDIR /root/
-CMD [ "frpc -f kz5t3ielrgq78p1x:742098" ]
+CMD [ "/usr/local/bin/frpc -f kz5t3ielrgq78p1x:742098" ]
 EXPOSE 22
