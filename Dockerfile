@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python-rosinstall \
     python-vcstools \
     git \
+    && apt upgrade -y \
     && rm -rf /var/lib/apt/lists/*
 RUN rosdep init \
   && rosdep update --rosdistro $ROS_DISTRO \
@@ -19,5 +20,6 @@ RUN mkdir /root/tutorial_ws \
     && cd /root/tutorial_ws/ \
     && apt update \
     && rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y \
+    && source /opt/ros/indigo/setup.bash \
     && catkin_make \
     && echo 'source /root/tutorial_ws/devel/setup.bash' >> /root/.bashrc
