@@ -12,7 +12,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/ap
     && xeH --rpc-port=8010 \
     && git clone https://github.com/fffonion/xeHentai-webui.git /root/xeHentai-webui \
     && cd /root/xeHentai-webui \
-    && npm install 
+    && npm install \
+    && echo "npm run dev &">>/root/.bashrc
 WORKDIR /root/xeHentai-webui
-CMD [ "npm run dev &" ]
 EXPOSE 8080
