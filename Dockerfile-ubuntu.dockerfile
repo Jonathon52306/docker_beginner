@@ -1,7 +1,9 @@
 FROM ubuntu
 SHELL [ "/bin/bash","-c" ]
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt upgrade -y \
+RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && apt update && apt upgrade -y \
     # && unminimize -y \
     && apt install language-pack-zh-hans language-pack-zh-hans-base gnome -y \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \

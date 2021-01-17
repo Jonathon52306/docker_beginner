@@ -1,6 +1,8 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt upgrade -y \
+RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && apt update && apt upgrade -y \
     && apt install wget python3-pip ffmpeg screen language-pack-zh-hans language-pack-zh-hans-base openssh-server -y \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata \
