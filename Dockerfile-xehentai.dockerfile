@@ -9,7 +9,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/ap
     && git clone https://github.com/fffonion/xeHentai.git /root/xeHentai \
     && cd /root/xeHentai \
     && python3 ./setup.py install \
-    && xeH --rpc-port=8010 \
+    && echo "xeH --rpc-port=8010" >>~/.bashrc \
     && git clone https://github.com/fffonion/xeHentai-webui.git /root/xeHentai-webui \
     && cd /root/xeHentai-webui \
     && npm install \
