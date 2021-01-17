@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-WORKDIR /root/
 RUN apt update && apt upgrade -y \
     && apt install python3-pip npm git wget curl -y \
     && npm install -g n \
@@ -11,6 +10,7 @@ RUN apt update && apt upgrade -y \
     && xeH --rpc-port=8010 \
     && git clone https://github.com/fffonion/xeHentai-webui.git /root/xeHentai-webui \
     && cd /root/xeHentai-webui \
-    && npm install \
-    && npm run dev
+    && npm install 
+WORKDIR /root/xeHentai-webui
+CMD [ "npm run dev &" ]
 EXPOSE 8080
