@@ -7,7 +7,7 @@ RUN apt update && apt upgrade -y \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt update && apt install xfce4 xrdp \
-    vnc4server tightvncserver xfce4-terminal -y \
+    tightvncserver xfce4-terminal -y \
     && echo “xfce4-session” >~/.xsession \
     && service xrdp restart \
     &&  wget https://getfrp.sh/d/frpc_linux_amd64 -P /usr/local/bin/ \
