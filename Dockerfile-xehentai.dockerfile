@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 WORKDIR /root/
 RUN apt update && apt upgrade -y \
-    && apt install python3-pip npm git -y \
+    && apt install python3-pip npm git wget curl -y \
     && npm install -g n \
     && n latest \
     && pip3 install -U requests[socks] \

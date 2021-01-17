@@ -1,4 +1,4 @@
-name: Docker-youtube-dl_1drv
+name: Docker-xeHentai
 on:
   push:
     branches: [ main ]
