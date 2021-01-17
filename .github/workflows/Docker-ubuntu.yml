@@ -10,7 +10,9 @@ jobs:
       - name: Log into registry
         run: |
           echo "${{ secrets.DOCKER_PASSWD }}" | docker login -u jonathan52306 --password-stdin
-      - name: Build and push image
+      - name: Build image
         run: |
           docker build -t jonathan52306/docker_beginner:xrdp -f Dockerfile-ubuntu.dockerfile .
+      - name: Push image
+        run: |
           docker push jonathan52306/docker_beginner:xrdp
