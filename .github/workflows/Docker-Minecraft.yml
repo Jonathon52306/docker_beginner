@@ -1,4 +1,4 @@
-name: Docker
+name: Docker-Minecraft
 on:
   push:
     branches: [ main ]
