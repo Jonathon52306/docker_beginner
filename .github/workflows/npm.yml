@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Clone repo
+      - name: Clone & build repo
         run: |
           pwd
           git clone https://github.com/fffonion/xeHentai-webui.git
