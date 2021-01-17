@@ -3,7 +3,7 @@ WORKDIR /root/
 RUN apt update && apt upgrade -y \
     && apt install python3-pip npm git -y \
     && npm install -g n \
-    && n 14.15.4 \
+    && n latest \
     && pip3 install -U requests[socks] \
     && git clone https://github.com/fffonion/xeHentai.git /root/xeHentai \
     && cd /root/xeHentai \
