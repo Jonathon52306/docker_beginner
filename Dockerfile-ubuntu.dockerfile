@@ -5,7 +5,7 @@ RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/ap
     && sed -i 's/http:\/\/security.ubuntu.com/http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list \
     && apt update && apt upgrade -y \
     # && unminimize -y \
-    && apt install language-pack-zh-hans language-pack-zh-hans-base gnome wget -y \
+    && apt update && apt install language-pack-zh-hans language-pack-zh-hans-base gnome wget -y \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt update && apt install xfce4 xrdp \
